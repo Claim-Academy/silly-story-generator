@@ -1,7 +1,7 @@
-import TextInput from "./components/TextInput";
-import RadioInput from "./components/RadioInput";
 import Button from "./components/Button";
+import RadioInput from "./components/RadioInput";
 import Story from "./components/Story";
+import TextInput from "./components/TextInput";
 
 const root = document.getElementById('root');
 
@@ -20,3 +20,17 @@ root.innerHTML = `
     ${Story({person: "Bob", place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"})}
   </main>
 `
+
+// Make sure that this comes after HTML is updated
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const submission = {
+    name: event.target.elements[0].value,
+    country: event.target.elements[1].value
+  }
+
+  console.log(submission);
+});
