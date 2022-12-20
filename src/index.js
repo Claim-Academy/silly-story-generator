@@ -42,10 +42,6 @@ const form = document.querySelector('form');
 form.addEventListener('submit', event => {
   event.preventDefault();
 
-  const submission = {
-    name: event.target.elements[0].value,
-    country: event.target.elements[1].value
-  }
-
-  console.log(submission);
+ state.name = event.target.elements[0].value
+  render()
 });
