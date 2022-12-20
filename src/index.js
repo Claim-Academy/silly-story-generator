@@ -1,11 +1,12 @@
 import TextInput from "./components/TextInput";
 import RadioInput from "./components/RadioInput";
 import Button from "./components/Button";
+import Story from "./components/Story";
 
 const root = document.getElementById('root');
 
 root.innerHTML = `
-  <main class="container mx-auto mt-8">
+  <main class="container mx-auto mt-8 flex flex-col gap-y-6 items-center">
     <form class="flex flex-col gap-y-4 items-center">
       ${TextInput()}
       <div class="flex gap-x-4">
@@ -14,6 +15,8 @@ root.innerHTML = `
       </div>
 
       ${Button("Submit")}
-    </form
+    </form>
+
+    ${Story({person: "Bob", place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"})}
   </main>
 `

@@ -6,6 +6,6 @@ const generateStory =
 }
 
 
-export function Story({person, place, situation, degrees, weight}) {
-  return `<p>${generateStory({person, place, situation, degrees, weight})}</p>`
+export default function Story({person, place, situation, degrees, weight}) {
+  return `<p class="max-w-prose">${generateStory({person, place, situation, degrees, weight})}</p>`
 }
