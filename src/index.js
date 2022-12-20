@@ -27,6 +27,17 @@ function render() {
     ${renderStory()}
   </main>
 `
+
+  // Make sure that this comes after HTML is updated
+  const form = document.querySelector('form');
+
+  // Re-attach the listener as part of each and every render
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+  state.name = event.target.elements[0].value
+    render()
+  });
 }
 
 // Conditional rendering
@@ -34,14 +45,7 @@ function renderStory() {
   return state.name ? Story({person: state.name, place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"}) : "";
 }
 
+// Initial render
 render();
 
-// Make sure that this comes after HTML is updated
-const form = document.querySelector('form');
-
-form.addEventListener('submit', event => {
-  event.preventDefault();
-
- state.name = event.target.elements[0].value
-  render()
-});
+// TODO: Work with state.country and our utility functions to render the correct story
