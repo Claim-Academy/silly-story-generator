@@ -5,7 +5,8 @@ import TextInput from "./components/TextInput";
 
 const root = document.getElementById('root');
 
-root.innerHTML = `
+function render() {
+  root.innerHTML = `
   <main class="container mx-auto mt-8 flex flex-col gap-y-6 items-center">
     <form class="flex flex-col gap-y-4 items-center">
       ${TextInput()}
@@ -20,6 +21,9 @@ root.innerHTML = `
     ${Story({person: "Bob", place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"})}
   </main>
 `
+}
+
+render();
 
 // Make sure that this comes after HTML is updated
 const form = document.querySelector('form');
