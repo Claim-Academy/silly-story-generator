@@ -31,11 +31,7 @@ function render() {
 
 // Conditional rendering
 function renderStory() {
-  if(state.name) {
-    return Story({person: state.name, place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"})
-  }
-
-  return "";
+  return state.name ? Story({person: state.name, place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"}) : "";
 }
 
 render();
