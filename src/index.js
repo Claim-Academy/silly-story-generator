@@ -5,6 +5,12 @@ import TextInput from "./components/TextInput";
 
 const root = document.getElementById('root');
 
+// Initial state
+const state = {
+  name: "",
+  country: "US"
+}
+
 function render() {
   root.innerHTML = `
   <main class="container mx-auto mt-8 flex flex-col gap-y-6 items-center">
@@ -18,9 +24,18 @@ function render() {
       ${Button("Submit")}
     </form>
 
-    ${Story({person: "Bob", place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"})}
+    ${renderStory()}
   </main>
 `
+}
+
+// Conditional rendering
+function renderStory() {
+  if(state.name) {
+    return Story({person: state.name, place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"})
+  }
+
+  return "";
 }
 
 render();
