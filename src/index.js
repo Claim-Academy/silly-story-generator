@@ -44,7 +44,7 @@ function render() {
 
 // Conditional rendering
 function renderStory() {
-  return state.name ? Story({person: state.name, place: state.place, situation: state.situation, degrees: state.degrees, weight: state.degrees}) : "";
+  return state.name ? Story(state) : "";
 }
 
 // Initial render
