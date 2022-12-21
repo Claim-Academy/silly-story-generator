@@ -1,7 +1,5 @@
-import Button from "./components/Button";
-import RadioInput from "./components/RadioInput";
+import Form from "./components/Form";
 import Story from "./components/Story";
-import TextInput from "./components/TextInput";
 
 const root = document.getElementById('root');
 
@@ -14,16 +12,7 @@ const state = {
 function render() {
   root.innerHTML = `
   <main class="container mx-auto mt-8 flex flex-col gap-y-6 items-center">
-    <form class="flex flex-col gap-y-4 items-center">
-      ${TextInput()}
-      <div class="flex gap-x-4">
-        ${RadioInput({label: "US", name: "country", checked: true})}
-        ${RadioInput({label: "UK", name: "country", checked: false})}
-      </div>
-
-      ${Button("Submit")}
-    </form>
-
+    ${Form()}
     ${renderStory()}
   </main>
 `
