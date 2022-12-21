@@ -3,7 +3,7 @@ import Story from "./components/Story";
 import people from "./db/people";
 import places from "./db/places";
 import situations from "./db/situations";
-import { getRandomIntInclusive } from "./utils";
+import { getRandomIntInclusive, convertToCelsius, convertToKgs } from "./utils";
 
 const root = document.getElementById('root');
 
@@ -34,8 +34,8 @@ function render() {
 
   state.name = event.target.elements[0].value;
   if(event.target.elements[1].value === "UK") {
-    state.degrees = "°C";
-    state.weight = "stone";
+    state.degrees = convertToCelsius(94) + "°C";
+    state.weight = convertToKgs(300) + "kg";
   }
 
     render()
