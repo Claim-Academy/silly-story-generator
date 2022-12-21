@@ -1,12 +1,20 @@
 import Form from "./components/Form";
 import Story from "./components/Story";
+import people from "./db/people";
+import places from "./db/places";
+import situations from "./db/situations";
+import { getRandomIntInclusive } from "./utils";
 
 const root = document.getElementById('root');
 
 // Initial state
 const state = {
   name: "",
-  country: "US"
+  person: people[getRandomIntInclusive(0, people.length - 1)],
+  place: places[getRandomIntInclusive(0, places.length - 1)],
+  situation: situations[getRandomIntInclusive(0, situations.length - 1)],
+  degrees: "94°F",
+  weight: "300 pounds",
 }
 
 function render() {
@@ -24,14 +32,19 @@ function render() {
   form.addEventListener('submit', event => {
     event.preventDefault();
 
-  state.name = event.target.elements[0].value
+  state.name = event.target.elements[0].value;
+  if(event.target.elements[1].value === "UK") {
+    state.degrees = "°C";
+    state.weight = "stone";
+  }
+
     render()
   });
 }
 
 // Conditional rendering
 function renderStory() {
-  return state.name ? Story({person: state.name, place: "the store", situation: "they bought a gallon of milk", degrees: "degrees", weight: "pounds"}) : "";
+  return state.name ? Story({person: state.name, place: state.place, situation: state.situation, degrees: state.degrees, weight: state.degrees}) : "";
 }
 
 // Initial render

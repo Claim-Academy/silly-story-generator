@@ -1,4 +1,3 @@
-
 export const convertToKgs = (weight) => {
   return weight * 0.453592
 }
